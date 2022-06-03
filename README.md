@@ -1,1 +1,1 @@
-# proj_as-ee-optimal-theory
+# proj_sc-ee-optimal-theory
