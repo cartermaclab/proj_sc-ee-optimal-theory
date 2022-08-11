@@ -82,9 +82,11 @@ fig1b <- ggplot(
                      limits = c(-.5, 1)) +
   scale_y_continuous(name = NULL,
                      limits = c(0, 7900)) +
-  geom_vline(xintercept = mean(post_sc_rob$value),
-             linetype = "dashed",
-             size = 1) +
+  # geom_vline(xintercept = mean(post_sc_rob$value),
+  #            linetype = "dashed",
+  #            size = 1) +
+  theme(axis.text.y = element_blank()) +
+  theme(axis.line.y = element_blank()) +
   ggtitle(expression(italic("Self-controlled practice"))
   )
 fig1b
@@ -101,9 +103,11 @@ fig1c <- ggplot(
                      limits = c(-.5, 1)) +
   scale_y_continuous(name = NULL,
                      limits = c(0, 7900)) +
-  geom_vline(xintercept = mean(post_ee_rob_nol$value),
-             linetype = "dashed",
-             size = 1) +
+  # geom_vline(xintercept = mean(post_ee_rob_nol$value),
+  #            linetype = "dashed",
+  #            size = 1) +
+  theme(axis.text.y = element_blank()) +
+  theme(axis.line.y = element_blank()) +
   ggtitle(expression(italic("Enhanced expectancies"))
   )
 fig1c
@@ -119,9 +123,12 @@ fig1d <- ggplot(
                      limits = c(-.5, 1)) +
   scale_y_continuous(name = NULL,
                      limits = c(0, 7900)) +
-  geom_vline(xintercept = mean(sim_rob$value),
-             linetype = "dashed",
-             size = 1) +
+  theme(axis.text.y = element_blank()) +
+  # geom_vline(xintercept = mean(sim_rob$value),
+  #            linetype = "dashed",
+  #            size = 1) +
+  theme(axis.text.y = element_blank()) +
+  theme(axis.line.y = element_blank()) +
   ggtitle(expression(italic("Simulation with a real effect"))
 )
 fig1d
