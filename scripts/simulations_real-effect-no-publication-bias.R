@@ -7,7 +7,7 @@
 #> Authors:
 #>   Brad McKay
 #>
-#> Last update: July 27 2022
+#> Last update: August 11 2022
 #>
 #> Website: https://www.cartermaclab.org
 #> -------------------------------------------
@@ -29,7 +29,7 @@ set.seed(9293)
 #>
 #> RoBMA simulation of true effect and no publication bias
 sim_real_effect <- simMA(
-  49, delta = .54, tau = 0,
+  49, delta = .54, tau = .35,
   qrpEnv = "none", censorFunc = "none",
   verbose = FALSE
 )
