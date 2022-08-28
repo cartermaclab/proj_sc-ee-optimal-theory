@@ -1,5 +1,5 @@
 ---
-title             : "The combination of reporting bias and underpowered study designs have substantially exaggerated the motor learning benefits of self-controlled practice and enhanced expectancies: A meta-analysis"
+title             : "The combination of reporting bias and underpowered study designs has substantially exaggerated the motor learning benefits of self-controlled practice and enhanced expectancies: A meta-analysis"
 shorttitle        : "Motivation pillar of OPTIMAL theory"
 
 # note: |
