@@ -46,7 +46,160 @@ theme_set(
 
 #> CREATE FIGURES ----
 #>
-#> Figure 1 - multipanel figure of prior and posterior distributions
+#>
+#> Figure 1 - Description McKay et al (in press) and Bacelar et al (2022) data sets.
+#>
+
+#> (1) Make workspace
+data <- tibble(x= 1:100, y= 1:100)
+head(data)
+
+
+p <- data |>
+  ggplot(aes(x, y)) +
+  scale_x_continuous(minor_breaks = seq(10, 100, 10)) +
+  scale_y_continuous(minor_breaks = seq(10, 100, 10))
+
+
+#> (2) Create boxes for SC and EE meta-analyses
+
+
+p +
+  geom_rect(xmin = 55, xmax=96, ymin=94, ymax=100, color='#89edff',
+            fill='white', size=0.85) +
+  annotate('text', x= 75.5, y=97,label= expression(bold("Self-Controlled Practice (McKay et al., in press)")), size=4) ->
+  p
+
+p +
+  geom_rect(xmin = 5.5, xmax=45.5, ymin=94, ymax=100, color='#ff89a1',
+            fill='white', size=0.85) +
+  annotate('text', x= 25.5, y=97,label= expression(bold('Enhanced Expectancies (Bacelar et al., 2022)')), size=4) ->
+  p
+
+#> (3) Create box for common inclusion criteria
+
+
+p +
+  geom_rect(xmin = 25.5, xmax=75.5, ymin=70, ymax=87, color='#9370f6',
+            fill='white', size=0.85) +
+  annotate('text', x= 50.5, y=84,label= expression(bold('Shared Inclusion Criteria:')), size = 4)+
+  annotate('text', x = 50.5, y = 77, label= 'Experimental Design \nDelayed Retention Test \n Included an Objective Measure of Motor Behavior\n Published in Peer-Reviewed Journal', size=4) ->
+  p
+
+#> (4) Create box for unique inclusion criteria for each meta
+
+
+p +
+  geom_rect(xmin = 77, xmax=104.5, ymin=70, ymax=85, color='#89edff',
+            fill='white', size=0.85) +
+  annotate('text', x= 90.75, y=82,label= expression(bold('Unique Inclusion Criteria:')), size = 4)+
+  annotate('text', x= 90.75, y = 77, label='Included a Self-Controlled Group \nIncluded a Yoked Group \nAccepted Thesis', size=4) ->
+  p
+
+p +
+  geom_rect(xmin = -3.5, xmax=23.5, ymin=70, ymax=85, color='#ff89a1',
+            fill='white', size=0.85) +
+  annotate('text', x= 10, y=82,label= expression(bold('Unique Inclusion Criteria:')), size = 4)+
+  annotate('text', x= 10, y = 77, label='Enhanced Expectancies Group  \nControl or Reduced Expec Group \nLearnable, Goal-Directed Task', size=4) ->
+  p
+
+#> (5) Create box for dependent measure priority list
+
+
+p +
+  geom_rect(xmin = 25.5, xmax=75.5, ymin=40, ymax=60, color='#9370f6',
+            fill='white', size=0.85) +
+  annotate('text', x= 50.5, y=57,label= expression(bold('Dependent Measure Selection:')), size = 4)+
+  annotate('text', x= 30.5, y = 55, label= expression(bold('Preferred')), size = 4)+
+  annotate('text', x= 51.6, y = 54.5, label= '  Accuracy (i.e., Radial Error)', size = 3.5)+
+  annotate('text', x = 58, y = 44.5, label= 'Correlated with Objective (i.e., Variable Error)', size = 3.5)+
+  annotate('text', x = 32.5, y= 43.5, label=expression(bold('Less Preffered')), size = 4) -> p
+
+#> (6) Create boxes for included studies
+
+p +
+  geom_rect(xmin = 10.5, xmax=40.5, ymin=15, ymax=27.5, color='#ff89a1',
+            fill='white', size=0.85) +
+  annotate('text', x = 25.5, y= 25, label= expression(bold('Studies Screened and Included')), size = 4)+
+  annotate('text', x= 25.5, y= 20, label= 'Full Text Screened: 125\n Studies Included: 56', size = 4) -> p
+
+p +
+  geom_rect(xmin = 60.5, xmax=90.5, ymin=15, ymax=27.5, color='#89edff',
+            fill='white', size=0.85) +
+  annotate('text', x = 75.5, y= 25, label= expression(bold('Studies Screened and Included')), size = 4)+
+  annotate('text', x= 75.5, y= 20, label= 'Full Text Screened: 160\n Outcomes Included: 54', size = 4) -> p
+
+#> (7) Create arrows indicating the flow of each meta
+
+p +
+  geom_segment(
+    x=20, xend=12.5, y=94, yend=85.4,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p +
+  geom_segment(
+    x=30, xend=40, y=94, yend=87.4,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+
+p +
+  geom_segment(
+    x=80, xend=90, y=94, yend=85.4,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p +
+  geom_segment(
+    x=70, xend=60, y=94, yend=87.4,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p +
+  geom_segment(
+    x=50.5, xend=50.5, y=70, yend=60.4,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p +
+  geom_segment(
+    x=31, xend=31, y=45, yend=53,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p +
+  geom_segment(
+    x=35.5, xend=35.5, y=40, yend=27.9,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p +
+  geom_segment(
+    x=65.5, xend=65.5, y=40, yend=27.9,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p +
+  geom_segment(
+    x=15, xend=15, y=70, yend=27.9,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p +
+  geom_segment(
+    x=85, xend=85, y=70, yend=27.9,
+    size=0.15, linejoin = "mitre", lineend = "butt",
+    arrow = arrow(length = unit(1, "mm"), type= "closed"))-> p
+
+p + theme_void() -> p
+
+p
+
+
+
+#>
+#> Figure 2 - multipanel figure of prior and posterior distributions
 #> (A) Prior; (B) Self-controlled; (C) Enhanced expectancies; (D) Posterior
 #> plot from simulated data with a true effect and no publication bias
 #>
@@ -142,7 +295,7 @@ fig1 +
   theme(plot.tag = element_text(size = 20, face = "bold"))
 
 
-#> Figure 2 - multipanel figure of z-curve plots, and expected
+#> Figure 3 - multipanel figure of z-curve plots, and expected
 #> discovery rate (EDR) and expected replication rate (ERR) uncertainty
 #> (A) Simulation with real effect and no publication bias;
 #> (B) Self-controlled; (C) Enhanced expectancies; (D) Combined
@@ -625,3 +778,7 @@ model8_peese <- model8_dat %>% ggplot(
        y = "Effect Size") +
   theme(rect = element_rect(fill = "transparent"))
 model8_peese
+
+
+
+
