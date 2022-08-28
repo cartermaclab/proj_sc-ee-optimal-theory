@@ -313,7 +313,7 @@ fig2a <- ggplot(
   scale_x_continuous(name = NULL,
                      limits = c(0, 6)
   ) +
-  scale_y_continuous(name = "Density",
+  scale_y_continuous(name = "Count",
                      limits = c(0, 1100),
                      breaks = seq(0, 1000, 250)
   ) +
@@ -346,7 +346,7 @@ fig2b1 <- ggplot(
   scale_x_continuous(name = NULL,
                      limits = c(0, 6)
                      ) +
-  scale_y_continuous(name = "Density",
+  scale_y_continuous(name = "Count",
                      limits = c(0, 15)
                      ) +
   geom_vline(xintercept = 1.96,
@@ -371,7 +371,7 @@ fig2b2 <- ggplot(
   scale_x_continuous(name = NULL,
                      limits = c(0, 1),
                      labels = c(0, 0.25, 0.5, 0.75, 1)) +
-  scale_y_continuous(name = "Density") +
+  scale_y_continuous(name = "Count") +
   guides(fill = guide_legend(override.aes = list(size = 0))) +
   geom_vline(xintercept = 0.8,
              linetype = "dashed",
@@ -394,7 +394,7 @@ fig2c1 <- ggplot(
   scale_x_continuous(name = NULL,
                      limits = c(0, 6)
   ) +
-  scale_y_continuous(name = "Density",
+  scale_y_continuous(name = "Count",
                      limits = c(0, 10),
                      breaks = seq(0, 10, 5)
   ) +
@@ -420,7 +420,7 @@ fig2c2 <- ggplot(
   scale_x_continuous(name = NULL,
                      limits = c(0, 1),
                      labels = c(0, 0.25, 0.5, 0.75, 1)) +
-  scale_y_continuous(name = "Density") +
+  scale_y_continuous(name = "Count") +
   guides(fill = guide_legend(override.aes = list(size = 0))) +
   geom_vline(xintercept = 0.8,
              linetype = "dashed",
@@ -443,7 +443,7 @@ fig2d1 <- ggplot(
   scale_x_continuous(name = expression(bolditalic("Z") * bold("-value")),
                      limits = c(0, 6)
   ) +
-  scale_y_continuous(name = "Density",
+  scale_y_continuous(name = "Count",
                      limits = c(0, 25)
   ) +
   geom_vline(xintercept = 1.96,
@@ -468,7 +468,7 @@ fig2d2 <- ggplot(
   scale_x_continuous(name = "Power",
                      limits = c(0, 1),
                      labels = c(0, 0.25, 0.5, 0.75, 1)) +
-  scale_y_continuous(name = "Density") +
+  scale_y_continuous(name = "Count") +
   guides(fill = guide_legend(override.aes = list(size = 0))) +
   geom_vline(xintercept = 0.8,
              linetype = "dashed",
