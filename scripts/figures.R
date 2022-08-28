@@ -112,7 +112,7 @@ p +
   annotate('text', x= 50.5, y=57,label= expression(bold('Dependent Measure Selection:')), size = 4)+
   annotate('text', x= 30.5, y = 55, label= expression(bold('Preferred')), size = 4)+
   annotate('text', x= 51.6, y = 54.5, label= '  Accuracy (i.e., Radial Error)', size = 3.5)+
-  annotate('text', x = 58, y = 44.5, label= 'Correlated with Objective (i.e., Variable Error)', size = 3.5)+
+  annotate('text', x = 57.4, y = 44.5, label= 'Correlated with Objective (i.e., Variable Error)', size = 3.5)+
   annotate('text', x = 32.5, y= 43.5, label=expression(bold('Less Preffered')), size = 4) -> p
 
 #> (6) Create boxes for included studies
