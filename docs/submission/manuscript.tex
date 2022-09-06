@@ -3,7 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  doc, donotrepeattitle,floatsintext]{apa7}
+  man, donotrepeattitle,floatsintext]{apa7}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -155,7 +155,10 @@
     {}{\InnerPatchFailed}%
   }
 {}{\PatchFailed}
-\keywords{Motor learning, OPTIMAL theory, Publication bias, Z-curve}
+\keywords{Motor learning, OPTIMAL theory, Motivation, RoBMA, \emph{Z}-curve, Publication bias}
+\usepackage{lineno}
+
+\linenumbers
 \usepackage{csquotes}
 \usepackage{pdflscape}
 \usepackage{longtable}
@@ -177,7 +180,7 @@
 \hypersetup{
   pdftitle={The combination of reporting bias and underpowered study designs has substantially exaggerated the motor learning benefits of self-controlled practice and enhanced expectancies: A meta-analysis},
   pdflang={en-EN},
-  pdfkeywords={Motor learning, OPTIMAL theory, Publication bias, Z-curve},
+  pdfkeywords={Motor learning, OPTIMAL theory, Motivation, RoBMA, \emph{Z}-curve, Publication bias},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
@@ -198,7 +201,7 @@
 \noindent \addORCIDlink{Mariane F.B. Bacelar}{0000-0002-0388-1769} \newline
 \noindent \addORCIDlink{Juliana O. Parma}{0000-0002-3118-9921} \newline
 \noindent \addORCIDlink{Matthew W. Miller}{0000-0002-7896-7217} \newline
-\noindent \addORCIDlink{Michael J. Carter}{0000-0002-0675-4271} \newline       
+\noindent \addORCIDlink{Michael J. Carter}{0000-0002-0675-4271} \newline
 \newline
 \noindent Data and code: \url{https://osf.io/vfza7/} \newline
 \newline
@@ -225,7 +228,8 @@ Bacelar and colleagues (2022) investigated the literature addressed by the secon
 
 Addressing reporting bias presents substantial challenges to meta-analysts. Since reporting bias limits the information we have access to, it is impossible to know for certain how much bias is present or how large the impact is (Carter et al., 2019; McShane et al., 2016). The best we can do is think carefully about the mechanisms that potentially underlie reporting bias and attempt to model them accurately. In contrast, a naive random effects analysis assumes there is no reporting bias. Complicating matters, reporting bias can take several different forms with unique impacts on the final sample (Maier et al., in-press; Stefan \& Schönbrodt, 2022; Thornton \& Lee, 2000). To account for this, multiple models of reporting bias need to be attempted without knowing which is most likely \emph{a priori}. Thus, bias-correction analyses are inherently sensitivity analyses (Mathur \& VanderWeele, 2020; Sutton et al., 2000; Vevea \& Woods, 2005). Until recently, if the results of multiple sensitivity analyses differed widely, there was no mechanism to reconcile the estimates. We now have Robust Bayesian Meta-Analysis (RoBMA) methods that apply Bayesian model averaging to allow meta-analysts to fit several plausible models (see Table \ref{tab:table1} for descriptions) and give greater weight to the models that best account for the data (Bartoš et al., 2022; Maier et al., in-press). The RoBMA method provides single estimates of the average effect and heterogeneity, along with Bayes factors to quantify the evidence in support of a true effect, the presence of heterogeneity, and the presence of reporting bias. Results from simulation studies and analyses of real data with known reporting bias mechanisms suggest that RoBMA is substantially more accurate and less biased than naive random effects models and also performs better than other competing reporting bias models (Bartoš et al., 2022).
 
-\clearpage
+\newpage
+\linespread{0.96}
 
 \renewcommand{\arraystretch}{1.7}
 \DefTblrTemplate{caption-tag}{default}{Table\hspace{0.25em}\thetable}
@@ -282,6 +286,8 @@ Quadratic relationship between effect and standard errors. Large studies likely 
 
 \clearpage
 
+\linespread{1.75}
+
 \normalsize
 
 A challenge for most reporting bias models is large heterogeneity in true effects. While RoBMA appears to perform well with moderate levels of heterogeneity, its performance has not been evaluated when heterogeneity is high and the performance of each of its constituent reporting bias models suffers with high heterogeneity (Carter et al., 2019). The \emph{z}-curve model was designed specifically to perform well regardless of heterogeneity (Bartoš \& Schimmack, 2022). While \emph{z}-curve does not provide adjusted effect size estimates (and such estimates may be meaningless with high heterogeneity), it instead estimates the average underlying power of included experiments. A significant difference between the estimated power of studies and the observed proportion of significant results can indicate the presence of reporting bias in a literature.
@@ -306,13 +312,14 @@ The original meta-analyses followed similar inclusion criteria and data extracti
 
 }
 
-\caption{\normalfont \footnotesize \textbf{Description of the original meta-analyses.} Diagram outlining the shared and unique inclusion criteria, dependent variable selection, the number of studies screened, and the number of studies included in each meta-analysis.}\label{fig:fig1}
+\caption{\linespread{0.96}\normalfont\footnotesize\textbf{Description of the original meta-analyses.} Diagram outlining the shared and unique inclusion criteria, dependent variable selection, the number of studies screened, and the number of studies included in each meta-analysis.}\label{fig:fig1}
 \end{figure}
 
 
 
 \clearpage
 
+\linespread{1.75}
 \normalsize
 
 \hypertarget{robust-bayesian-meta-analysis}{%
@@ -374,7 +381,7 @@ The RoBMA-PSMA models with and without influential cases differed primarily with
 
 }
 
-\caption{\normalfont \footnotesize \textbf{Results from the robust Bayesian meta-analysis with publication selection model-averaging (RoBMA-PSMA) method.} \textbf{(A)} Prior spike and distribution (purple) with 50\% of prior probability density concentrated on the null hypothesis and 50\% reflecting plausible true effects with \emph{M} = 0 and \emph{SD} = 1. (The x-axis is truncated; the prior did include a small probability of effects larger than 1 and smaller than -1.) The model-averaged posterior distribution of the mean effect (Mu) of \textbf{(B)} self-controlled practice on motor learning (blue). The increased height of the spike at mu = 0 reflects increased belief in the null hypothesis. The remaining distribution reflects updated belief in the size and direction of a possible true effect. The mean estimate (\emph{M} = .034) for the posterior distribution is represented by the dashed vertical line. The model-averaged posterior distribution of the mean effect of \textbf{(C)} enhanced expectancies on motor learning (red). The decreased height of the spike at mu = 0 reflects decreased belief in the null hypothesis. The remaining distribution reflected updated belief in the size and direction of a possible true effect. The mean estimate (\emph{M} = .26) for the posterior distribution is represented by the dashed vertical line. The model-averaged posterior distribution generated from an analysis of \textbf{(D)} simulated data (green). In the simulation, 49 studies were sampled from a population with a true effect of mu = .54 and no reporting bias. The mean estimate (\emph{M} = .504) for the posterior is represented by the vertical dashed line. Outliers were not included in the self-controlled (\emph{n} = 2) and enhanced expectancies (\emph{n} = 2) models.}\label{fig:fig2}
+\caption{\linespread{0.96}\normalfont\footnotesize\textbf{Results from the robust Bayesian meta-analysis with publication selection model-averaging (RoBMA-PSMA) method.} \textbf{(A)} Prior spike and distribution (purple) with 50\% of prior probability density concentrated on the null hypothesis and 50\% reflecting plausible true effects with \emph{M} = 0 and \emph{SD} = 1. (The x-axis is truncated; the prior did include a small probability of effects larger than 1 and smaller than -1.) The model-averaged posterior distribution of the mean effect (Mu) of \textbf{(B)} self-controlled practice on motor learning (blue). The increased height of the spike at mu = 0 reflects increased belief in the null hypothesis. The remaining distribution reflects updated belief in the size and direction of a possible true effect. The mean estimate (\emph{M} = .034) for the posterior distribution is represented by the dashed vertical line. The model-averaged posterior distribution of the mean effect of \textbf{(C)} enhanced expectancies on motor learning (red). The decreased height of the spike at mu = 0 reflects decreased belief in the null hypothesis. The remaining distribution reflected updated belief in the size and direction of a possible true effect. The mean estimate (\emph{M} = .26) for the posterior distribution is represented by the dashed vertical line. The model-averaged posterior distribution generated from an analysis of \textbf{(D)} simulated data (green). In the simulation, 49 studies were sampled from a population with a true effect of mu = .54 and no reporting bias. The mean estimate (\emph{M} = .504) for the posterior is represented by the vertical dashed line. Outliers were not included in the self-controlled (\emph{n} = 2) and enhanced expectancies (\emph{n} = 2) models.}\label{fig:fig2}
 \end{figure}
 
 
@@ -409,7 +416,7 @@ The results of the \emph{z}-curve analysis of enhanced expectancy and self-contr
 
 }
 
-\caption{\normalfont \footnotesize \textbf{Results of the \emph{z}-curve analyses.} Distribution of \emph{z}-values for \textbf{(A)} our simulation with 47\% results and no reporting bias (green), \textbf{(B, left)} self-controlled practice (blue), \textbf{(C, left)} enhanced expectancies (red), and \textbf{(D, left)} motivational factors combined (purple). Values in the \emph{z}-score distributions for each analysis that are to the right of the significance line (\emph{z} = 1.96; solid, black) are statistically significant with a two-tailed \(\alpha\) of .05. Bootstrapped confidence distributions for the expected discovery rate (EDR; dark) and expected replication rate (ERR; light) for \textbf{(B, right)} self-controlled practice (blue), \textbf{(C, right)} enhanced expectancies (red), and \textbf{(D, right)} motivational factors combined (purple). Note, reported CIs include 5 extra points (EDR) and 3 extra points (ERR) added to the quantiles of the bootstrapped distributions in the right panel, consistent with Bartoš et al. (2022). The expected discovery rate is the estimated average power of all studies that have been conducted . The expected replication rate is the estimated power of all studies that observed a statistically significant result. The analysis estimated the average statistical power to be 6\%, 8\%, and 6\% for self-controlled practice, enhanced expectancies, and motivational factors combined, respectively. The estimated conditional power of the statistically significant results was 11\%, 33\%, and 21\% for self-controlled practice, enhanced expectancies, and motivational factors combined, respectively. Note that a minimum power of 80\% (dashed line, black) is often recommended. Outliers were not included in the self-controlled (\emph{n} = 2), enhanced expectancies (\emph{n} = 2), and motivational factors combined (\emph{n} = 4) analyses.}\label{fig:fig3}
+\caption{\linespread{0.96}\normalfont\footnotesize\textbf{Results of the \emph{z}-curve analyses.} Distribution of \emph{z}-values for \textbf{(A)} our simulation with 47\% results and no reporting bias (green), \textbf{(B, left)} self-controlled practice (blue), \textbf{(C, left)} enhanced expectancies (red), and \textbf{(D, left)} motivational factors combined (purple). Values in the \emph{z}-score distributions for each analysis that are to the right of the significance line (\emph{z} = 1.96; solid, black) are statistically significant with a two-tailed \(\alpha\) of .05. Bootstrapped confidence distributions for the expected discovery rate (EDR; dark) and expected replication rate (ERR; light) for \textbf{(B, right)} self-controlled practice (blue), \textbf{(C, right)} enhanced expectancies (red), and \textbf{(D, right)} motivational factors combined (purple). Note, reported CIs include 5 extra points (EDR) and 3 extra points (ERR) added to the quantiles of the bootstrapped distributions in the right panel, consistent with Bartoš et al. (2022). The expected discovery rate is the estimated average power of all studies that have been conducted . The expected replication rate is the estimated power of all studies that observed a statistically significant result. The analysis estimated the average statistical power to be 6\%, 8\%, and 6\% for self-controlled practice, enhanced expectancies, and motivational factors combined, respectively. The estimated conditional power of the statistically significant results was 11\%, 33\%, and 21\% for self-controlled practice, enhanced expectancies, and motivational factors combined, respectively. Note that a minimum power of 80\% (dashed line, black) is often recommended. Outliers were not included in the self-controlled (\emph{n} = 2), enhanced expectancies (\emph{n} = 2), and motivational factors combined (\emph{n} = 4) analyses.}\label{fig:fig3}
 \end{figure}
 
 
@@ -441,24 +448,24 @@ Our analyses suggest a lack of evidence in support of enhanced expectancies and 
 
 There are multiple ways to increase statistical power, such as accounting for between-subjects variance by using a covariate, like pretest motor performance, in an ANCOVA design (Vickers \& Altman, 2001), and/or increasing the number of pretest and posttest trials (Maxwell et al., 1991). Perhaps the most common and effective way to boost power is to increase sample size. Lakens (2022) describes several approaches for determining sample size, including conducting an \emph{a priori} power analysis. A recent survey of three popular motor learning journals revealed a low prevalence (84/635 or 13\% in McKay, Corson, et al., 2022) and low reproducibility (7/84 or 8\% in McKay, Bacelar, et al., 2022) of reported \emph{a priori} power analyses. The usefulness of an \emph{a priori} power analysis depends on reasonable assumptions about effect sizes. Assumptions about the effect size for self-controlled practice and enhanced expectancies studies should be based on the bias-corrected estimates found in the present study (self-controlled practice: \emph{d} = .034; enhanced expectancies: \emph{d} = 0.26) given the evidence of reporting bias. Researchers could also use the smallest effect size of interest (Lakens, 2022), but this effect may be even smaller than those from the meta-analyses, as noted earlier. Simonsohn (2015) described another approach to determine sample size for replication studies termed the ``small telescopes'' approach. This approach recommends the replication sample size be 2.5 times that of the original sample. With questions surrounding the face value of original studies supporting OPTIMAL theory, we believe replication studies are crucial and the ``small telescopes'' approach to determine sample size for these studies should be the minimally accepted approach. Irrespective of which of the above approaches researchers use to make reasonable assumptions about effect sizes, their \emph{a priori} power analyses will likely lead to sample sizes that are larger than they are used to collecting. Thus, researchers may want to consider ways to improve the efficiency of their data collection, for example by using sequential analyses (Lakens et al., 2021; Lakens, 2014; Wald, 1945) or conducting multi-laboratory studies. Finally, clarity about the effect of self-controlled practice and/or enhanced expectancies on motor learning can only be achieved if a complete picture of the evidence is available. Researchers and gatekeepers to scientific publication (e.g., peer-reviewers, journal editors) should take measures to eliminate reporting bias, for example by publishing registered reports, undertaking/encouraging replication attempts (at a minimum using the ``small telescopes'' approach), and publishing null effects.
 
-\vfill
+\vspace{3em}
 
 \hypertarget{author-contributions-credit-taxonomy}{%
 \subsection{Author Contributions (CRediT Taxonomy)}\label{author-contributions-credit-taxonomy}}
 
 \noindent Conceptualization: BM, MFBB, JOP, MWM, MJC\\
-Data curation: BM, MJC\\
-Formal analysis: BM\\
-Funding acquisition: MJC\\
-Investigation: BM, MFBB, JOP, MWM, MJC\\
-Methodology: BM, MFBB, JOP, MWM, MJC\\
-Project administration: BM, MFBB, JOP, MWM, MJC\\
-Software: BM, MJC\\
-Supervision: MWM, MJC\\
-Validation: BM, MJC\\
-Visualization: BM, MJC\\
-Writing -- original draft: BM, MFBB, JOP, MWM, MJC\\
-Writing -- review \& editing: BM, MFBB, JOP, MWM, MJC
+\noindent Data curation: BM, MJC\\
+\noindent Formal analysis: BM\\
+\noindent Funding acquisition: MJC\\
+\noindent Investigation: BM, MFBB, JOP, MWM, MJC\\
+\noindent Methodology: BM, MFBB, JOP, MWM, MJC\\
+\noindent Project administration: BM, MFBB, JOP, MWM, MJC\\
+\noindent Software: BM, MJC\\
+\noindent Supervision: MWM, MJC\\
+\noindent Validation: BM, MJC\\
+\noindent Visualization: BM, MJC\\
+\noindent Writing -- original draft: BM, MFBB, JOP, MWM, MJC\\
+\noindent Writing -- review \& editing: BM, MFBB, JOP, MWM, MJC
 
 \hypertarget{acknowledgements}{%
 \subsection{Acknowledgements}\label{acknowledgements}}
@@ -479,6 +486,8 @@ Writing -- review \& editing: BM, MFBB, JOP, MWM, MJC
 \subsection{Funding}\label{funding}}
 
 \noindent This work was supported by the Natural Sciences and Engineering Research Council (NSERC) of Canada (RGPIN-2018-05589; MJC) and McMaster University (MJC).
+
+\vspace{3em}
 
 \hypertarget{references}{%
 \section{References}\label{references}}
