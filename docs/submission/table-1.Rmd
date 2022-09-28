@@ -1,0 +1,105 @@
+---
+title             : "The combination of reporting bias and underpowered study designs has substantially exaggerated the motor learning benefits of self-controlled practice and enhanced expectancies: A meta-analysis"
+shorttitle        : "Motivation pillar of OPTIMAL theory"
+
+authornote: NULL
+  
+abstract: NULL
+
+bibliography      : ["../references.bib", "../r-references.bib"]
+
+floatsintext      : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : no
+mask              : no
+draft             : no
+
+csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
+documentclass     : "apa7"
+classoption       : "man, donotrepeattitle"
+#fontsize          : 11pt
+output            : papaja::apa6_pdf
+
+header-includes   :
+  - \usepackage{newtxtext,newtxmath}
+  - \usepackage{pdflscape}
+  - \AtBeginDocument{\let\maketitle\relax}
+  - \usepackage{longtable}
+  - \usepackage{graphicx}
+  - \usepackage{graphbox}
+ # - \usepackage{caption} 
+ # - \captionsetup[table]{skip=5pt}
+  - \usepackage{tabularray}
+  - \UseTblrLibrary{booktabs}
+ # - \usepackage{setspace}
+ # - \pagewiselinenumbers
+  - \raggedbottom
+  - \pagenumbering{gobble}
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+```{=latex}
+\renewcommand{\arraystretch}{1.7}
+\DefTblrTemplate{caption-tag}{default}{Table\hspace{0.25em}\thetable}
+\DefTblrTemplate{caption-sep}{default}{.\enskip}
+\DefTblrTemplate{caption-text}{default}{\InsertTblrText{caption}}
+\DefTblrTemplate{contfoot-text}{default}{(\emph{Continued})}
+\DefTblrTemplate{middlehead,lasthead}{default}{\textbf{Table 1.} Continued}
+\SetTblrStyle{caption-tag,caption-sep}{\bfseries}
+\small
+\begin{longtblr}[
+  caption = {The selection and regression models used in our robust Bayesian meta-analysis approach.},
+  label = {tab:table1},
+]{colspec = {p{4.8cm}p{5cm}p{4.8cm}}}
+\toprule
+  \textbf{Type of selection} &
+  \textbf{Visualization} &
+  \textbf{Example scenario} \\ 
+\midrule
+  \textbf{\underline{Selection models}} &
+  &
+  \textbf{\underline{Direction not important}} \\
+Significant results are more likely to be reported in either direction (two-tailed)  &
+  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model1.png}} &
+  Researcher conducts test and observes a null result. They decide the experiment did not work and move on. Significant results get reported. \\
+Significant results are most likely to be reported, but `non-significant trends' are more likely to be reported than other null results in either direction (two-tailed). &
+  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model2.png}} &
+  Authors report significant results and `non-significant trends'. The latter may be interpreted as fair evidence the manipulation worked. Some reviewers take issue with trends, so only some make it through and get reported. Null results unlikely to be written up. \\
+  &
+  &
+  \textbf{\underline{Direction important}} \\
+Significant results and non-significant trends are more likely to be reported in the predicted direction. &
+  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model3.png}} &
+  Researcher is confident in the hypothesis being tested in an experiment and doubts the validity of null or opposing findings. Reports results they are confident in. \\
+Significant results in the predicted direction are more likely to be reported than trends, which are more likely to be reported than other null results and significant results in the opposite (i.e., `wrong') direction. &
+  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model4.png}} &
+  A preference for reporting findings with a compelling narrative results in preferring significant results and occasionally trends. Null or conflicting results less likely to add to the narrative. \\
+Significant results and trends in the predicted (i.e., `correct') direction are more likely to be reported than null findings in the predicted (i.e., `correct') direction, which are more likely to be reported than results in the opposite (i.e., `wrong') direction. &
+  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model5.png}} &
+  A student observes results in the opposite direction of what was expected. Supervisor thinks something may have went wrong so results not published. Other students publish results consistent with predictions. \\
+Full selection model. Significant results most likely, then trends, then null results in the predicted (i.e., `correct') direction. The least likely to be reported are results in the opposite (i.e., `wrong') direction. &
+  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model6.png}} &
+  An editor prefers to publish interesting results. Prediction successes are interesting. Some trends are interesting if they are believable. Results in the opposite direction are interesting, but only if replicated. \vspace{1em} \\
+  \textbf{\underline{Regression models}} &
+  &
+  \\
+Conditioning on smaller \emph{p}-values in the predicted direction creates a relationship between effect sizes and standard errors. Called `small study effects' because all else being equal smaller studies need larger effects to achieve significant results. &
+  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model7.png}} &
+  This models the dependency caused by selective reporting, not the underlying mechanism itself. Dependency can be caused by a third variable, such as intensity of the interventions used in smaller compared to larger studies. \\
+Quadratic relationship between effect and standard errors. Large studies likely to be reported independent of results, while smaller studies need increasingly large effects in the predicted (i.e., `correct') direction to avoid censorship. &
+  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model8.png}} &
+  Researchers invest in conducting a large study and are motivated to publish regardless of the results. They persevere if null results are rejected. Small studies are abandoned unless the results are impressive. \\
+\bottomrule
+\end{longtblr}
+```

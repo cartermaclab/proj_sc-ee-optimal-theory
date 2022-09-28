@@ -18,11 +18,11 @@ authornote: |
 
 
 abstract: |
-  Enhanced expectancies and autonomy-support through self-controlled practice conditions form the motivation pillar of OPTIMAL theory [@wulf2016]. The influence of these practice variables on motor learning was recently evaluated in two separate meta-analyses. Both meta-analyses found that the published literature suggested a moderate and significant benefit on motor learning; however, evidence for reporting bias was found in both literatures. Although multiple bias-corrected estimates were reported in the self-controlled meta-analysis, there was no principled way to prefer one over the other. In the enhanced expectancies meta-analysis, the trim-and-fill-technique failed to correct the estimated effects. Here, we addressed these limitations by reanalyzing the data from both meta-analyses using robust Bayesian meta-analysis methods. Our reanalysis revealed that reporting bias substantially exaggerated the benefits of these practice variables in the original meta-analyses. The true effects are instead small, uncertain, and potentially null. We also found the estimated average statistical power among all studies from the original meta-analyses was 6% (95% confidence interval [5%, 13%]). These results provide compelling and converging evidence that strongly suggests the available literature is insufficient to support the motivation pillar of OPTIMAL theory. Our results highlight the need for adequately powered experimental designs if motor learning scientists want to make evidence-based recommendations.
+  Enhanced expectancies and autonomy-support through self-controlled practice conditions form the motivation pillar of OPTIMAL theory [@wulf2016]. The influence of these practice variables on motor learning was recently evaluated in two separate meta-analyses. Both meta-analyses found that the published literature suggested a moderate and significant benefit on motor learning; however, evidence for reporting bias was found in both literatures. Although multiple bias-corrected estimates were reported in the self-controlled meta-analysis, there was no principled way to prefer one over the other. In the enhanced expectancies meta-analysis, the trim-and-fill-technique failed to correct the estimated effects. Here, we addressed these limitations by reanalyzing the data from both meta-analyses using robust Bayesian meta-analysis methods. Our reanalysis revealed that reporting bias substantially exaggerated the benefits of these practice variables in the original meta-analyses. The true effects appear small, uncertain, and potentially null. We found the estimated average statistical power among all studies from the original meta-analyses was 6% (95% confidence interval [5%, 13%]). These results provide compelling and converging evidence that strongly suggests the available literature is insufficient to support the motivation pillar of OPTIMAL theory. Our results highlight the need for adequately powered experimental designs if motor learning scientists want to make evidence-based recommendations.
 
   
-keywords          : "Motor learning, OPTIMAL theory, Motivation, RoBMA, \\emph{Z}-curve, Publication bias"
-#wordcount         : ""
+keywords          : "OPTIMAL theory, Motivation, RoBMA, \\emph{Z}-curve, Publication bias"
+wordcount         : "6354"
 
 bibliography      : ["../references.bib", "../r-references.bib"]
 
@@ -31,7 +31,7 @@ figurelist        : no
 tablelist         : no
 footnotelist      : no
 linenumbers       : yes
-mask              : no
+mask              : yes
 draft             : no
 
 csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
@@ -41,6 +41,7 @@ classoption       : "man, donotrepeattitle"
 output            : papaja::apa6_pdf
 
 header-includes   :
+  - \usepackage{newtxtext,newtxmath}
   - \usepackage{pdflscape}
   - \usepackage{longtable}
   - \usepackage{graphicx}
@@ -52,6 +53,11 @@ header-includes   :
  # - \usepackage{setspace}
  # - \pagewiselinenumbers
   - \raggedbottom
+  - \usepackage{sectsty}
+  - \sectionfont{\centering\normalfont\normalsize\bfseries}
+  - \subsectionfont{\normalfont\normalsize\bfseries\itshape}
+  - \subsubsectionfont{\normalfont\normalsize\itshape}
+  - \usepackage{censor}
 
   - \renewcommand\author[1]{}
   - \renewcommand\affiliation[1]{}
@@ -76,71 +82,11 @@ Unfortunately, it has become recognized throughout social science that reporting
 
 Bacelar and colleagues [-@bacelar2022] investigated the literature addressed by the second motivation factor in OPTIMAL theory---enhanced expectancies. In their meta-analysis, Bacelar and colleagues found that the average benefit of studies that manipulated expectancies via interventions described in OPTIMAL theory was *g* = .54. However, there was evidence of reporting bias that could not be accounted for with moderators in the study. The authors applied the trim-and-fill method in an effort to adjust for reporting bias, but it made no corrections and no other corrections were applied. It is noteworthy that self-controlled practice studies and the studies included in the Bacelar et al. meta-analysis have much in common: both literatures are comprised of variables predicted by OPTIMAL theory to increase motivation and in turn motor performance and learning; both include studies examined in a meta-analysis by Lohse and colleagues [-@lohse2016] that found evidence of low power, multiplicity, and bias; and both showed signs of reporting bias in their funnel plots. If both literatures have been affected similarly by reporting bias, then the current estimate of *g* = .54 for variables thought to enhance expectancies may be a substantial overestimate.
 
-Addressing reporting bias presents substantial challenges to meta-analysts. Since reporting bias limits the information we have access to, it is impossible to know for certain how much bias is present or how large the impact is [@carter2019; @mcshane2016]. The best we can do is think carefully about the mechanisms that potentially underlie reporting bias and attempt to model them accurately. In contrast, a naive random effects analysis assumes there is no reporting bias. Complicating matters, reporting bias can take several different forms with unique impacts on the final sample [@maier2022; @stefan2022; @thornton2000]. To account for this, multiple models of reporting bias need to be attempted without knowing which is most likely *a priori*. Thus, bias-correction analyses are inherently sensitivity analyses [@mathur2020; @sutton2000; @vevea2005]. Until recently, if the results of multiple sensitivity analyses differed widely, there was no mechanism to reconcile the estimates. We now have Robust Bayesian Meta-Analysis (RoBMA) methods that apply Bayesian model averaging to allow meta-analysts to fit several plausible models (see Table \@ref(tab:table1) for descriptions) and give greater weight to the models that best account for the data [@bartos2021; @maier2022]. The RoBMA method provides single estimates of the average effect and heterogeneity, along with Bayes factors to quantify the evidence in support of a true effect, the presence of heterogeneity, and the presence of reporting bias. Results from simulation studies and analyses of real data with known reporting bias mechanisms suggest that RoBMA is substantially more accurate and less biased than naive random effects models and also performs better than other competing reporting bias models [@bartos2021].
+Addressing reporting bias presents substantial challenges to meta-analysts. Since reporting bias limits the information we have access to, it is impossible to know for certain how much bias is present or how large the impact is [@carter2019; @mcshane2016]. The best we can do is think carefully about the mechanisms that potentially underlie reporting bias and attempt to model them accurately. In contrast, a naive random effects analysis assumes there is no reporting bias. Complicating matters, reporting bias can take several different forms with unique impacts on the final sample [@maier2022; @stefan2022; @thornton2000]. To account for this, multiple models of reporting bias need to be attempted without knowing which is most likely *a priori*. Thus, bias-correction analyses are inherently sensitivity analyses [@mathur2020; @sutton2000; @vevea2005]. Until recently, if the results of multiple sensitivity analyses differed widely, there was no mechanism to reconcile the estimates. We now have Robust Bayesian Meta-Analysis (RoBMA) methods that apply Bayesian model averaging to allow meta-analysts to fit several plausible models (see Table 1 for descriptions) and give greater weight to the models that best account for the data [@bartos2021; @maier2022]. The RoBMA method provides single estimates of the average effect and heterogeneity, along with Bayes factors to quantify the evidence in support of a true effect, the presence of heterogeneity, and the presence of reporting bias. Results from simulation studies and analyses of real data with known reporting bias mechanisms suggest that RoBMA is substantially more accurate and less biased than naive random effects models and also performs better than other competing reporting bias models [@bartos2021].
 
-\newpage
-\linespread{0.96}
-
-```{=latex}
-\renewcommand{\arraystretch}{1.7}
-\DefTblrTemplate{caption-tag}{default}{Table\hspace{0.25em}\thetable}
-\DefTblrTemplate{caption-sep}{default}{.\enskip}
-\DefTblrTemplate{caption-text}{default}{\InsertTblrText{caption}}
-\DefTblrTemplate{contfoot-text}{default}{(\emph{Continued})}
-\DefTblrTemplate{middlehead,lasthead}{default}{\textbf{Table 1.} Continued}
-\SetTblrStyle{caption-tag,caption-sep}{\bfseries}
-\small
-\begin{longtblr}[
-  caption = {The selection and regression models used in our robust Bayesian meta-analysis approach.},
-  label = {tab:table1},
-]{colspec = {p{4.5cm}p{5cm}p{4.5cm}}}
-\toprule
-  \textbf{Type of selection} &
-  \textbf{Visualization} &
-  \textbf{Example scenario} \\ 
-\midrule
-  \textbf{\underline{Selection models}} &
-  &
-  \textbf{\underline{Direction not important}} \\
-Significant results are more likely to be reported in either direction (two-tailed)  &
-  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model1.png}} &
-  Researcher conducts test and observes a null result. They decide the experiment did not work and move on. Significant results get reported. \\
-Significant results are most likely to be reported, but ``non-significant trends'' are more likely to be reported than other null results in either direction (two-tailed). &
-  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model2.png}} &
-  Authors report significant results and ``non-significant trends''. The latter may be interpreted as fair evidence the manipulation worked. Some reviewers take issue with trends, so only some make it through and get reported. Null results unlikely to be written up. \vspace{1em} \\
-  &
-  &
-  \textbf{\underline{Direction important}} \\
-Significant results and non-significant trends are more likely to be reported in the predicted direction. &
-  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model3.png}} &
-  Researcher is confident in the hypothesis being tested in an experiment and doubts the validity of null or opposing findings. Reports results they are confident in. \\
-Significant results in the predicted direction are more likely to be reported than trends, which are more likely to be reported than other null results and significant results in the opposite (i.e., ``wrong'') direction. &
-  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model4.png}} &
-  A preference for reporting findings with a compelling narrative results in preferring significant results and occasionally trends. Null or conflicting results less likely to add to the narrative. \\
-Significant results and trends in the predicted (i.e., ``correct'') direction are more likely to be reported than null findings in the predicted (i.e., ``correct'') direction, which are more likely to be reported than results in the opposite (i.e., ``wrong'') direction. &
-  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model5.png}} &
-  A student observes results in the opposite direction of what was expected. Supervisor thinks something may have went wrong so results not published. Other students publish results consistent with predictions. \\
-Full selection model. Significant results most likely, then trends, then null results in the predicted (i.e., ``correct'') direction. The least likely to be reported are results in the opposite (i.e., ``wrong'') direction. &
-  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model6.png}} &
-  An editor prefers to publish interesting results. Prediction successes are interesting. Some trends are interesting if they are believable. Results in the opposite direction are interesting, but only if replicated. \\
-  \textbf{\underline{Regression models}} &
-  &
-  \\
-Conditioning on smaller \emph{p}-values in the predicted direction creates a relationship between effect sizes and standard errors. Called ``small study effects'' because all else being equal smaller studies need larger effects to achieve significant results. &
-  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model7.png}} &
-  This models the dependency caused by selective reporting, not the underlying mechanism itself. Dependency can be caused by a third variable, such as intensity of the interventions used in smaller compared to larger studies. \\
-Quadratic relationship between effect and standard errors. Large studies likely to be reported independent of results, while smaller studies need increasingly large effects in the predicted (i.e., ``correct'') direction to avoid censorship. &
-  \raisebox{-0.9\height}{\includegraphics[width=4.75cm]{../../figs/model8.png}} &
-  Researchers invest in conducting a large study and are motivated to publish regardless of the results. They persevere if null results are rejected. Small studies are abandoned unless the results are impressive. \\
-\bottomrule
-\end{longtblr}
-```
-
-\clearpage
-
-\linespread{1.75}
-
-\normalsize
+\begin{center}
+[TABLE 1 NEAR HERE]
+\end{center}
 
 A challenge for most reporting bias models is large heterogeneity in true effects. While RoBMA appears to perform well with moderate levels of heterogeneity, its performance has not been evaluated when heterogeneity is high and the performance of each of its constituent reporting bias models suffers with high heterogeneity [@carter2019]. The *z*-curve model was designed specifically to perform well regardless of heterogeneity [@bartos2020]. While *z*-curve does not provide adjusted effect size estimates (and such estimates may be meaningless with high heterogeneity), it instead estimates the average underlying power of included experiments. A significant difference between the estimated power of studies and the observed proportion of significant results can indicate the presence of reporting bias in a literature.
 
@@ -148,24 +94,15 @@ Here, we leveraged state-of-the-art robust Bayesian meta-analysis and *z*-curve 
 
 # Materials and methods
 
-Data and code used in this study can be accessed using either of the following links: https://osf.io/vfza7/ or https://github.com/cartermaclab/proj_sc-ee-optimal-theory.
+Data and code used in this study can be accessed using either of the following links: https://osf.io/vfza7/ or \censor{$https://github.com/cartermaclab/proj_sc-ee-optimal-theory$}.
 
 ## Description of datasets
 
-The original meta-analyses followed similar inclusion criteria and data extraction policies (see Figure \@ref(fig:fig1)). All data were extracted by two independent researchers with conflicts settled by including a third researcher. The literature search for the self-controlled practice meta-analysis [for further details see @mckay2021] ended in August 2019 and in June 2020 for the enhanced expectancies meta-analysis [for further details see @bacelar2022].
+The original meta-analyses followed similar inclusion criteria and data extraction policies (see Figure 1). All data were extracted by two independent researchers with conflicts settled by including a third researcher. The literature search for the self-controlled practice meta-analysis [for further details see @mckay2021] ended in August 2019 and in June 2020 for the enhanced expectancies meta-analysis [for further details see @bacelar2022].
 
-\clearpage
-
-```{r fig1, echo = FALSE, fig.cap = "(ref:fig1-caption)", fig.align = "center"}
-knitr::include_graphics("../../figs/fig1.pdf")
-```
-
-(ref:fig1-caption) \linespread{0.96}\normalfont\footnotesize\textbf{Description of the original meta-analyses.} Diagram outlining the shared and unique inclusion criteria, dependent variable selection, the number of studies screened, and the number of studies included in each meta-analysis.
-
-\clearpage
-
-\linespread{1.75}
-\normalsize
+\begin{center}
+[FIGURE 1 NEAR HERE]
+\end{center}
 
 ## Robust Bayesian meta-analysis
 
@@ -173,7 +110,7 @@ The self-controlled practice and enhanced expectancy meta-data were reanalyzed u
 
 Two classes of models are included to account for selective publishing of results. The first class of models are known as selection models. In a selection model, a weight-function based on *p*-values is fit to the data and the probability that a result survives censorship to be included in the model is estimated for each *p*-value interval. For example, a one-tailed *p*-value cut point of .025 might be specified, corresponding to a two-sided *p*-value of .05 in the positive direction. The probability that non-significant results survive censorship is estimated relative to the probability that positive significant results are published, which is set at 1. Selection models can be used to model a variety of potential forms of selective publishing. For example, selection may be concerned with significance but not the direction of the effect; in which case a two-sided *p*-value of .05 can be fit to the model. Selection may also be based on both statistical significance in the positive direction and the direction of the point estimate; in which case one-sided *p*-values of .025 and .5 can be fit to the model. The RoBMA-PSMA method fits six different selection models corresponding to various plausible forms of selection based on discrete *p*-values.
 
-The second class of models fit in the RoBMA-PSMA method model the relationship between observed effect sizes and their standard errors. A positive relationship between effect sizes and their standard errors has been termed "small study effects" [@sterne2000]. The RoBMA-PSMA includes the precision-effect test (PET) and the precision-effect test with standard errors (PEESE) for small study effects. The PET model fits the relationship between observed effect sizes and their standard errors, while the PEESE model instead includes the square of the standard errors (i.e., their variances) [@stanley2014]. The difference between the PET and PEESE models is that the PET model fits a linear relationship between the effect observed in a study and the precision with which that effect was estimated. The PEESE model fits a quadratic relationship. Thus, the PET and PEESE models differ with respect to the assumed underlying selection process [@stanley2014]. The PET model assumes that effect sizes increase in step with decreases in precision, consistent with selection based on statistical significance. The PEESE model assumes that studies with high precision are likely to be published regardless of statistical significance, whereas increasingly imprecise studies require increasingly larger effect size estimates to survive censorship.
+The second class of models fit in the RoBMA-PSMA method model the relationship between observed effect sizes and their standard errors. A positive relationship between effect sizes and their standard errors has been termed 'small study effects' [@sterne2000]. The RoBMA-PSMA includes the precision-effect test (PET) and the precision-effect test with standard errors (PEESE) for small study effects. The PET model fits the relationship between observed effect sizes and their standard errors, while the PEESE model instead includes the square of the standard errors (i.e., their variances) [@stanley2014]. The difference between the PET and PEESE models is that the PET model fits a linear relationship between the effect observed in a study and the precision with which that effect was estimated. The PEESE model fits a quadratic relationship. Thus, the PET and PEESE models differ with respect to the assumed underlying selection process [@stanley2014]. The PET model assumes that effect sizes increase in step with decreases in precision, consistent with selection based on statistical significance. The PEESE model assumes that studies with high precision are likely to be published regardless of statistical significance, whereas increasingly imprecise studies require increasingly larger effect size estimates to survive censorship.
 
 RoBMA includes 36 separate models: a) six weight-function selection models in each level of a 2 (Effect: present, absent) x 2 (Heterogeneity: present, absent) matrix (24 models in total), b) PET and PEESE regression models in each level of the 2 x 2 Effect x Heterogeneity matrix (8 models in total), and c) models assuming no reporting bias at each level of the Effect x Heterogeneity matrix (4 models in total). The prior probabilities for the reporting-bias adjusted and unadjusted models are both set to .5; thus, summing to 1.0. The prior for the reporting-bias adjusted models is spread evenly between the selection and PET-PEESE regression model classes, so the priors for the two model classes sum to .5. Estimates from all 36 models are combined using Bayesian model-averaging, which weights each model estimate based on its posterior probability. Models that better account for the data are given greater weight in the RoBMA-PSMA model and models that provide a poor fit are down-weighted. The adjusted effect size estimate is produced by averaging across all models. This preserves the uncertainty about the true data generating process while weighting the component models based on their relative performance.
 
@@ -183,7 +120,7 @@ In addition to providing an overall effect estimate, the RoBMA-PSMA model can al
 
 RoBMA-PSMA outperforms other meta-analytic approaches, including each constituent model included in RoBMA-PSMA, in simulations covering a range of plausible scenarios [@maier2022]. Further, an analysis of real data from an approximately known data generating process (multi-lab registered replication report) suggested that RoBMA-PSMA outperforms other available techniques [@bartos2021]. These strong performance indices combined with the ability to simultaneously model various plausible manifestations of reporting bias made RoBMA-PSMA an attractive choice for re-analyzing the enhanced expectancies and self-controlled practice meta-analyses.
 
-## *Z*-curve
+## Z-curve
 
 The self-controlled practice meta-data[^2], enhanced expectancy meta-data, and the combination of both the enhanced expectancy and self-controlled practice meta-data were analyzed with a *z*-curve. A *z*-curve analysis estimates the statistical power of all studies ever conducted within a given literature, even if those studies were not reported, on the basis of the significant results that are present [@bartos2021]. That power estimate is equivalent to the expected discovery rate, that is, the expected rate of significant results for a given literature. The expected discovery rate estimated by a *z*-curve and its corresponding 95% confidence interval can be compared to the observed discovery rate in the literature (the actual rate of significant results). A discrepancy between the 95% confidence interval of the expected discovery rate estimate and the observed discovery rate provides evidence of reporting bias.
 
@@ -207,59 +144,43 @@ Statistical analyses were conducted using `r cite_r("../r-references.bib")` were
 
 ### Self-controlled practice
 
-The model-averaged posterior distribution of the average effect from the RoBMA-PSMA model is displayed in Figure \@ref(fig:fig2)B. The results suggest moderate evidence against the presence of an effect, BF~01~ = 3.16, very weak evidence against the presence of heterogeneity, BF~rf~ = 1.7, and overwhelming evidence for the presence of reporting bias, BF~pb~ = 18,399. The overall model ensemble estimated the effect of self-controlled practice as *d* = .034 (95% credible interval [.0, .248]). Heterogeneity was estimated as $\tau$ = .05 (95% credible interval [.0, .261]). A model fit with two influential cases included found overwhelming evidence for the presence of heterogeneity, BF~rf~ = 1,924,516 and estimated $\tau$ = .559 (95% credible interval [.36, .78]). There were no other meaningful differences between models.
+The model-averaged posterior distribution of the average effect from the RoBMA-PSMA model is displayed in Figure 2B. The results suggest moderate evidence against the presence of an effect, BF~01~ = 3.16, very weak evidence against the presence of heterogeneity, BF~rf~ = 1.7, and overwhelming evidence for the presence of reporting bias, BF~pb~ = 18,399. The overall model ensemble estimated the effect of self-controlled practice as *d* = .034 (95% credible interval [.0, .248]). Heterogeneity was estimated as $\tau$ = .05 (95% credible interval [.0, .261]). A model fit with two influential cases included found overwhelming evidence for the presence of heterogeneity, BF~rf~ = 1,924,516 and estimated $\tau$ = .559 (95% credible interval [.36, .78]). There were no other meaningful differences between models.
 
 ### Enhanced expectancies
 
-The model-averaged posterior distribution of the average effect from the RoBMA-PSMA model is displayed in Figure \@ref(fig:fig2)C. The results revealed weak evidence for the presence of an effect BF~10~ = 1.9, weak evidence for the presence of reporting bias, BF~pb~ = 2.3, and very strong evidence for the presence of heterogeneity, BF~rf~ = 47.6. The model ensemble estimated an average effect of *d* = .26 (95% credible interval [-.07, .63]). Heterogeneity was estimated as $\tau$ = .35 (95% credible interval [.07, .54]). A model fit with two influential cases included found weak evidence for the absence of an effect BF~01~ = 2.5, strong evidence for the presence of reporting bias, BF~pb~ = 21, and overwhelming evidence for the presence of heterogeneity, BF~rf~ = 45,300. The model ensemble estimated an average effect of *d* = .00 (95% credible interval [-.62, .59]), $\tau$ = .49 (95% credible interval [.32, .68]).
+The model-averaged posterior distribution of the average effect from the RoBMA-PSMA model is displayed in Figure 2C. The results revealed weak evidence for the presence of an effect BF~10~ = 1.9, weak evidence for the presence of reporting bias, BF~pb~ = 2.3, and very strong evidence for the presence of heterogeneity, BF~rf~ = 47.6. The model ensemble estimated an average effect of *d* = .26 (95% credible interval [-.07, .63]). Heterogeneity was estimated as $\tau$ = .35 (95% credible interval [.07, .54]). A model fit with two influential cases included found weak evidence for the absence of an effect BF~01~ = 2.5, strong evidence for the presence of reporting bias, BF~pb~ = 21, and overwhelming evidence for the presence of heterogeneity, BF~rf~ = 45,300. The model ensemble estimated an average effect of *d* = .00 (95% credible interval [-.62, .59]), $\tau$ = .49 (95% credible interval [.32, .68]).
 
 The RoBMA-PSMA models with and without influential cases differed primarily with respect to the fit of the PEESE models. When two large effect sizes with large standard errors were included in the analysis, the PEESE model provided a very strong fit to the data (BF~10~ = 39.9) when assuming no true effect but the presence of heterogeneity. When the two influential cases were excluded, the best fitting model was the PET under the same assumptions (BF~10~ = 9.4).
 
-\clearpage
+\begin{center}
+[FIGURE 2 NEAR HERE]
+\end{center}
 
-```{r fig2, echo = FALSE, fig.cap = "(ref:fig2-caption)", fig.align = "center"}
-knitr::include_graphics("../../figs/fig2.pdf")
-```
-
-(ref:fig2-caption) \linespread{0.96}\normalfont\footnotesize\textbf{Results from the robust Bayesian meta-analysis with publication selection model-averaging (RoBMA-PSMA) method.} **(A)** Prior spike and distribution (purple) with 50% of prior probability density concentrated on the null hypothesis and 50% reflecting plausible true effects with *M* = 0 and *SD* = 1. (The x-axis is truncated; the prior did include a small probability of effects larger than 1 and smaller than -1.) The model-averaged posterior distribution of the mean effect (Mu) of **(B)** self-controlled practice on motor learning (blue). The increased height of the spike at mu = 0 reflects increased belief in the null hypothesis. The remaining distribution reflects updated belief in the size and direction of a possible true effect. The mean estimate (*M* = .034) for the posterior distribution is represented by the dashed vertical line. The model-averaged posterior distribution of the mean effect of **(C)** enhanced expectancies on motor learning (red). The decreased height of the spike at mu = 0 reflects decreased belief in the null hypothesis. The remaining distribution reflected updated belief in the size and direction of a possible true effect. The mean estimate (*M* = .26) for the posterior distribution is represented by the dashed vertical line. The model-averaged posterior distribution generated from an analysis of **(D)** simulated data (green). In the simulation, 49 studies were sampled from a population with a true effect of mu = .54 and no reporting bias. The mean estimate (*M* = .504) for the posterior is represented by the vertical dashed line. Outliers were not included in the self-controlled (*n* = 2) and enhanced expectancies (*n* = 2) models.
-
-\clearpage
-
-\normalsize
-
-## *Z*-curve
+## Z-curve
 
 ### Self-controlled practice
 
-The results of the *z*-curve analysis can be seen in Figure \@ref(fig:fig3)B. The analysis estimated the average statistical power (expected discovery rate) of all experiments examining the effect of self-controlled practice was 6% (95% confidence intervals [5%, 12%]). Since the upper bound of the expected discovery rate does not overlap with the observed discovery rate of 48% (95% confidence interval [35%, 62%]), there is evidence of significant reporting bias. The estimated conditional power of the statistically significant results (expected replication rate) was 11% (95% confidence interval [3%, 30%]). Including influential cases did not markedly change the results.
+The results of the *z*-curve analysis can be seen in Figure 3B. The analysis estimated the average statistical power (expected discovery rate) of all experiments examining the effect of self-controlled practice was 6% (95% confidence intervals [5%, 12%]). Since the upper bound of the expected discovery rate does not overlap with the observed discovery rate of 48% (95% confidence interval [35%, 62%]), there is evidence of significant reporting bias. The estimated conditional power of the statistically significant results (expected replication rate) was 11% (95% confidence interval [3%, 30%]). Including influential cases did not markedly change the results.
 
 ### Enhanced expectancies
 
-The results of the *z*-curve analysis can be seen in Figure \@ref(fig:fig3)C. The analysis estimated that the expected discovery rate of studies conducted on enhanced expectancies was 8% (95% confidence interval [5%, 18%]). The observed discovery rate was 44% (95% confidence interval [31%, 59%]). Since the upper bound of the expected discovery rate does not overlap with the lower bound of the observed discovery rate, there is evidence of significant reporting bias. The expected replication rate of the statistically significant results was 33% (95% confidence interval [8%, 59%]). Including influential cases did not meaningfully change the results.
+The results of the *z*-curve analysis can be seen in Figure 3C. The analysis estimated that the expected discovery rate of studies conducted on enhanced expectancies was 8% (95% confidence interval [5%, 18%]). The observed discovery rate was 44% (95% confidence interval [31%, 59%]). Since the upper bound of the expected discovery rate does not overlap with the lower bound of the observed discovery rate, there is evidence of significant reporting bias. The expected replication rate of the statistically significant results was 33% (95% confidence interval [8%, 59%]). Including influential cases did not meaningfully change the results.
 
 ### Motivational factors in OPTIMAL theory
 
-The results of the *z*-curve analysis of enhanced expectancy and self-controlled practice meta-data combined can be seen in Figure \@ref(fig:fig3)D. The expected discovery rate of all studies conducted on the motivational factors in OPTIMAL theory is 6% (95% confidence interval [5%, 13%]). The observed discovery rate was 46% (95% confidence interval [37%, 56%]). The lower bound of the observed discovery rate does not overlap with the upper bound of the expected discovery rate, providing evidence of significant reporting bias in this literature. The expected replication rate of the statistically significant results was 21% (95% confidence interval [4%, 39%]). Including influential cases did not meaningfully change the results.
+The results of the *z*-curve analysis of enhanced expectancy and self-controlled practice meta-data combined can be seen in Figure 3D. The expected discovery rate of all studies conducted on the motivational factors in OPTIMAL theory is 6% (95% confidence interval [5%, 13%]). The observed discovery rate was 46% (95% confidence interval [37%, 56%]). The lower bound of the observed discovery rate does not overlap with the upper bound of the expected discovery rate, providing evidence of significant reporting bias in this literature. The expected replication rate of the statistically significant results was 21% (95% confidence interval [4%, 39%]). Including influential cases did not meaningfully change the results.
 
-\clearpage
-
-```{r fig3, echo = FALSE, fig.cap = "(ref:fig3-caption)", fig.align = "center"}
-knitr::include_graphics("../../figs/fig3.pdf")
-```
-
-(ref:fig3-caption) \linespread{0.96}\normalfont\footnotesize\textbf{Results of the \emph{z}-curve analyses.} Distribution of *z*-values for **(A)** our simulation with 47% results and no reporting bias (green), **(B, left)** self-controlled practice (blue), **(C, left)** enhanced expectancies (red), and **(D, left)** motivational factors combined (purple). Values in the *z*-score distributions for each analysis that are to the right of the significance line (*z* = 1.96; solid, black) are statistically significant with a two-tailed $\alpha$ of .05. Bootstrapped confidence distributions for the expected discovery rate (EDR; dark) and expected replication rate (ERR; light) for **(B, right)** self-controlled practice (blue), **(C, right)** enhanced expectancies (red), and **(D, right)** motivational factors combined (purple). Note, reported CIs include 5 extra points (EDR) and 3 extra points (ERR) added to the quantiles of the bootstrapped distributions in the right panel,  consistent with @bartos2021. The expected discovery rate is the estimated average power of all studies that have been conducted . The expected replication rate is the estimated power of all studies that observed a statistically significant result. The analysis estimated the average statistical power to be 6%, 8%, and 6% for self-controlled practice, enhanced expectancies, and motivational factors combined, respectively. The estimated conditional power of the statistically significant results was 11%, 33%, and 21% for self-controlled practice, enhanced expectancies, and motivational factors combined, respectively. Note that a minimum power of 80% (dashed line, black) is often recommended. Outliers were not included in the self-controlled (*n* = 2), enhanced expectancies (*n* = 2), and motivational factors combined (*n* = 4) analyses.
-
-\clearpage
-
-\normalsize
+\begin{center}
+[FIGURE 3 NEAR HERE]
+\end{center}
 
 # Discussion
 
 A theory is formed based on observations of study results and/or real-world phenomena. It is evaluated by subsequent studies testing hypotheses derived from the theory. Thus, a theory’s basis and support depend on the evidential value of the relevant studies. The OPTIMAL theory of motor learning [@wulf2016] was established through study results showing that enhancing learners’ expectancies and control over practice conditions improves learning and further supported by studies testing these hypotheses [@wulf2021]. Two recent meta-analyses were conducted to appraise the evidential value of studies testing whether self-controlled practice [@mckay2021] and/or enhanced expectancies [@bacelar2022] improve motor learning. McKay and colleagues' [-@mckay2021] meta-analysis found self-controlled practice benefited motor learning (*g* = 0.54) when using a naive random-effects model of published studies, but little evidence for a benefit was observed when a suite of bias correction techniques were employed (*g*'s ranged from -0.11 to 0.26). McKay et al. also used a *z*-curve analysis to estimate the statistical power of self-controlled practice studies and found them to be severely underpowered (power = 6%, 95% confidence interval [5%, 13%]). Bacelar and colleagues' [-@bacelar2022] meta-analysis found evidence that enhanced expectancies improve motor learning when utilizing a naive random-effects model (*g* = 0.54). Despite evidence of bias (i.e., funnel plot asymmetry), applying a trim-and-fill bias correction technique did not change the naive random-effects model estimate. Crucially, however, the trim-and-fill bias correction technique only slightly reduces bias and Type I error [@carter2019]. Bacelar et al. did not estimate the statistical power of enhanced expectancies studies; although they did note that the included studies had small sample sizes.
 
-Our objective in the current study was to conduct a holistic assessment of the motivation pillar of OPTIMAL theory. Specifically, we used RoBMA-PSMA---a state-of-the-art bias correction technique---to evaluate the effect of self-controlled practice and enhanced expectancies on motor learning (see Figure \@ref(fig:fig2)). Additionally, we used *z*-curve analyses to estimate the statistical power of the enhanced expectancies studies alone and then combined with the self-controlled practice studies to assess the motivation pillar of OPTIMAL theory (see Figure \@ref(fig:fig3)). Using RoBMA-PSMA to model the effect of self-controlled practice on motor learning, we found moderate evidence against the presence of an effect (BF~01~ = 3.16). The model ensemble estimated a small average effect of *d* = .034 with a 95% credible interval that reached zero [.0, .248]. We also found overwhelming evidence for the presence of reporting bias (BF~pb~ = 18,399). When modeling the effect of enhanced expectancies on motor learning with RoBMA-PSMA, we found weak evidence for the presence of an effect (BF~10~ = 1.9). The model ensemble estimated a small average effect of *d* = .26 with a 95% credible interval that included zero [-.07, .63]. Weak evidence for the presence of reporting bias (BF~pb~ = 2.3) was also found. There was very strong support for the presence of heterogeneity in the enhanced expectancies literature (BF~rf~ = 47.6).
+Our objective in the current study was to conduct a holistic assessment of the motivation pillar of OPTIMAL theory. Specifically, we used RoBMA-PSMA---a state-of-the-art bias correction technique---to evaluate the effect of self-controlled practice and enhanced expectancies on motor learning (see Figure 2). Additionally, we used *z*-curve analyses to estimate the statistical power of the enhanced expectancies studies alone and then combined with the self-controlled practice studies to assess the motivation pillar of OPTIMAL theory (see Figure 3). Using RoBMA-PSMA to model the effect of self-controlled practice on motor learning, we found moderate evidence against the presence of an effect (BF~01~ = 3.16). The model ensemble estimated a small average effect of *d* = .034 with a 95% credible interval that reached zero [.0, .248]. We also found overwhelming evidence for the presence of reporting bias (BF~pb~ = 18,399). When modeling the effect of enhanced expectancies on motor learning with RoBMA-PSMA, we found weak evidence for the presence of an effect (BF~10~ = 1.9). The model ensemble estimated a small average effect of *d* = .26 with a 95% credible interval that included zero [-.07, .63]. Weak evidence for the presence of reporting bias (BF~pb~ = 2.3) was also found. There was very strong support for the presence of heterogeneity in the enhanced expectancies literature (BF~rf~ = 47.6).
 
-Heterogeneity can be problematic for modeling reporting bias with the selection and regression models employed in RoBMA-PSMA [@carter2019]. Fortunately, the *z*-curve was designed for heterogeneous samples and may therefore be a better method of evaluating reporting bias in the enhanced expectancies data. The *z*-curve analysis estimated the average statistical power of enhanced expectancies studies to be 8%. The 95% confidence interval [5%, 18%] did not overlap with the 95% confidence interval of the observed discovery rate [31%, 59%], providing evidence of significant reporting bias. Visual inspection of the distribution of *z*-values reveals a large concentration of barely significant results and a dearth of barely not significant results (Figure \@ref(fig:fig3)B). This pattern is consistent with selective reporting, and it is difficult to imagine an alternate process that would generate these results. To evaluate the potential presence of reporting bias across both motivation factors, as well as estimate the average power of studies that have investigated these phenomena, we applied a *z*-curve to studies from both meta-analyses. The *z*-curve analysis combining the enhanced expectancies and self-controlled practice studies estimated the average statistical power to be 6%. The 95% confidence interval [5%, 13%] did not overlap with the 95% confidence interval of the observed discovery rate [37%, 56%], indicating significant reporting bias.
+Heterogeneity can be problematic for modeling reporting bias with the selection and regression models employed in RoBMA-PSMA [@carter2019]. Fortunately, the *z*-curve was designed for heterogeneous samples and may therefore be a better method of evaluating reporting bias in the enhanced expectancies data. The *z*-curve analysis estimated the average statistical power of enhanced expectancies studies to be 8%. The 95% confidence interval [5%, 18%] did not overlap with the 95% confidence interval of the observed discovery rate [31%, 59%], providing evidence of significant reporting bias. Visual inspection of the distribution of *z*-values reveals a large concentration of barely significant results and a dearth of barely not significant results (Figure 3B). This pattern is consistent with selective reporting, and it is difficult to imagine an alternate process that would generate these results. To evaluate the potential presence of reporting bias across both motivation factors, as well as estimate the average power of studies that have investigated these phenomena, we applied a *z*-curve to studies from both meta-analyses. The *z*-curve analysis combining the enhanced expectancies and self-controlled practice studies estimated the average statistical power to be 6%. The 95% confidence interval [5%, 13%] did not overlap with the 95% confidence interval of the observed discovery rate [37%, 56%], indicating significant reporting bias.
 
 Our results are mostly consistent with other recent meta-analyses and pre-registered experiments with large sample sizes that have raised concerns about the state of evidence for the motivation pillar in OPTIMAL theory. Concerning self-controlled practice, the RoBMA-PSMA estimate of *d* =.034 is within the range of estimates reported by McKay et al. [-@mckay2021], which showed *g*'s ranging from -0.11 to 0.26. Our finding of overwhelming evidence for reporting bias is also consistent with McKay and colleagues' *z*-curve showing the 95% confidence interval for average statistical power was 5% to 13% and an observed discovery rate of 37% to 56%. Four recent pre-registered studies with relatively large sample sizes have all failed to observe a self-controlled practice or learning benefit [@bacelar2022a; @mckay2022; @stgermain2022; @yantha2022]. For example, @bacelar2022a had 100 participants practice a non-dominant arm bean bag tossing task with self-controlled augmented knowledge of results feedback and 100 participants practice the task without choice, and did not find a self-controlled learning advantage. Regarding enhanced expectancies, our RoMBA-PSMA estimate of *d* = 0.26 is consistent with Bacelar and colleagues' [-@bacelar2022] concern that their meta-analysis yielded an overestimated effect size (*g* = 0.54). Likewise, our *z*-curve result that enhanced expectancies are underpowered and subject to reporting bias is consistent with Bacelar and colleagues' findings of small sample sizes (median = 14/group) and small-study effects (i.e., significant funnel plot asymmetry). Estimates of reporting bias from the RoBMA-PSMA models were sensitive to the removal of two outliers, showing strong support for bias only when one or two outliers were included but not when both were removed. The evidence of reporting bias observed in the *z*-curve was not sensitive to removal of outliers and with the heterogeneity in the sample the *z*-curve may provide a better test of bias than RoBMA-PSMA. Considering these motivational factors combined, the *z*-curve result that studies supporting OPTIMAL theory are underpowered and subject to reporting bias is consistent with McKay and colleagues' [-@mckay2021] meta-analysis that drew the same conclusion about self-controlled practice studies. Taken together, past and present results suggest that the our samples of studies demonstrating the benefit of enhancing learners’ expectancies and giving them control over practice conditions presents a distorted reality due to reporting bias. These effects are not reliably different from zero, highlighting that the motivation pillar of OPTIMAL theory lacks evidential value.
 
@@ -271,45 +192,59 @@ Our efforts to model selective reporting and adjust our parameter estimates acco
 
 Our analyses suggest a lack of evidence in support of enhanced expectancies and self-controlled practice as beneficial motor learning interventions. The lack of evidence supporting the motivational branch in OPTIMAL theory is not evidence that the predicted effects are absent. Indeed, even the null effects for a self-controlled practice benefit reported by pre-registered studies with large sample sizes [@bacelar2022a; @mckay2022; @stgermain2022; @yantha2022] are not conclusive that an effect is absent. Rather, these null effects leave open the possibility that the effect is very small and, thus, not detectable even with relatively large sample sizes (e.g., *N* = 200 as in @bacelar2022a). Motor learning researchers often study skills performed in sports, which are often *games of inches*, so very small effects may be of practical interest. Nonetheless, the field of motor learning is not past asking whether self-controlled practice and enhanced expectancies have any benefit, so concerns about estimating the magnitude of a potential benefit are premature [@simonsohn2015]. Thus, we urge any motor learning scientist(s) interested in clarifying whether self-controlled practice or enhanced expectancies boost motor learning to address the problems of underpowered and overworked study designs [@lohse2016] and the reporting bias revealed in the present meta-analysis and those by @mckay2021 and @bacelar2022.
 
-There are multiple ways to increase statistical power, such as accounting for between-subjects variance by using a covariate, like pretest motor performance, in an ANCOVA design [@vickers2001], and/or increasing the number of pretest and posttest trials [@maxwell1991]. Perhaps the most common and effective way to boost power is to increase sample size. @lakens2022 describes several approaches for determining sample size, including conducting an *a priori* power analysis. A recent survey of three popular motor learning journals revealed a low prevalence [84/635 or 13% in @mckay2022b] and low reproducibility [7/84 or 8% in @mckay2022c] of reported *a priori* power analyses. The usefulness of an *a priori* power analysis depends on reasonable assumptions about effect sizes. Assumptions about the effect size for self-controlled practice and enhanced expectancies studies should be based on the bias-corrected estimates found in the present study (self-controlled practice: *d* = .034; enhanced expectancies: *d* = 0.26) given the evidence of reporting bias. Researchers could also use the smallest effect size of interest [@lakens2022], but this effect may be even smaller than those from the meta-analyses, as noted earlier. @simonsohn2015 described another approach to determine sample size for replication studies termed the "small telescopes" approach. This approach recommends the replication sample size be 2.5 times that of the original sample. With questions surrounding the face value of original studies supporting OPTIMAL theory, we believe replication studies are crucial and the "small telescopes" approach to determine sample size for these studies should be the minimally accepted approach. Irrespective of which of the above approaches researchers use to make reasonable assumptions about effect sizes, their *a priori* power analyses will likely lead to sample sizes that are larger than they are used to collecting. Thus, researchers may want to consider ways to improve the efficiency of their data collection, for example by using sequential analyses [@lakens2014; @lakens2021; @wald1945] or conducting multi-laboratory studies. Finally, clarity about the effect of self-controlled practice and/or enhanced expectancies on motor learning can only be achieved if a complete picture of the evidence is available. Researchers and gatekeepers to scientific publication (e.g., peer-reviewers, journal editors) should take measures to eliminate reporting bias, for example by publishing registered reports, undertaking/encouraging replication attempts (at a minimum using the "small telescopes" approach), and publishing null effects.
+There are multiple ways to increase statistical power, such as accounting for between-subjects variance by using a covariate, like pretest motor performance, in an ANCOVA design [@vickers2001], and/or increasing the number of pretest and posttest trials [@maxwell1991]. Perhaps the most common and effective way to boost power is to increase sample size. @lakens2022 describes several approaches for determining sample size, including conducting an *a priori* power analysis. A recent survey of three popular motor learning journals revealed a low prevalence [84/635 or 13% in @mckay2022b] and low reproducibility [7/84 or 8% in @mckay2022c] of reported *a priori* power analyses. The usefulness of an *a priori* power analysis depends on reasonable assumptions about effect sizes. Assumptions about the effect size for self-controlled practice and enhanced expectancies studies should be based on the bias-corrected estimates found in the present study (self-controlled practice: *d* = .034; enhanced expectancies: *d* = 0.26) given the evidence of reporting bias. Researchers could also use the smallest effect size of interest [@lakens2022], but this effect may be even smaller than those from the meta-analyses, as noted earlier. @simonsohn2015 described another approach to determine sample size for replication studies termed the 'small telescopes' approach. This approach recommends the replication sample size be 2.5 times that of the original sample. With questions surrounding the face value of original studies supporting OPTIMAL theory, we believe replication studies are crucial and the 'small telescopes' approach to determine sample size for these studies should be the minimally accepted approach. Irrespective of which of the above approaches researchers use to make reasonable assumptions about effect sizes, their *a priori* power analyses will likely lead to sample sizes that are larger than they are used to collecting. Thus, researchers may want to consider ways to improve the efficiency of their data collection, for example by using sequential analyses [@lakens2014; @lakens2021; @wald1945] or conducting multi-laboratory studies. Finally, clarity about the effect of self-controlled practice and/or enhanced expectancies on motor learning can only be achieved if a complete picture of the evidence is available. Researchers and gatekeepers to scientific publication (e.g., peer-reviewers, journal editors) should take measures to eliminate reporting bias, for example by publishing registered reports, undertaking/encouraging replication attempts (at a minimum using the 'small telescopes' approach), and publishing null effects.
 
 \vspace{3em}
 
 ## Author Contributions (CRediT Taxonomy)
 
-\noindent Conceptualization: BM, MFBB, JOP, MWM, MJC  
-\noindent Data curation: BM, MJC  
-\noindent Formal analysis: BM  
-\noindent Funding acquisition: MJC  
-\noindent Investigation: BM, MFBB, JOP, MWM, MJC  
-\noindent Methodology: BM, MFBB, JOP, MWM, MJC  
-\noindent Project administration: BM, MFBB, JOP, MWM, MJC  
-\noindent Software: BM, MJC  
-\noindent Supervision: MWM, MJC  
-\noindent Validation: BM, MJC  
-\noindent Visualization: BM, MJC  
-\noindent Writing -- original draft: BM, MFBB, JOP, MWM, MJC  
-\noindent Writing -- review & editing: BM, MFBB, JOP, MWM, MJC
+\noindent Conceptualization: \blackout{BM, MFBB, JOP, MWM, MJC}  
+\noindent Data curation: \blackout{BM, MJC}  
+\noindent Formal analysis: \blackout{BM}  
+\noindent Funding acquisition: \blackout{MJC}  
+\noindent Investigation: \blackout{BM, MFBB, JOP, MWM, MJC}  
+\noindent Methodology: \blackout{BM, MFBB, JOP, MWM, MJC}  
+\noindent Project administration: \blackout{BM, MFBB, JOP, MWM, MJC}  
+\noindent Software: \blackout{BM, MJC}  
+\noindent Supervision: \blackout{MWM, MJC}  
+\noindent Validation: \blackout{BM, MJC}  
+\noindent Visualization: \blackout{BM, MJC}  
+\noindent Writing -- original draft: \blackout{BM, MFBB, JOP, MWM, MJC}  
+\noindent Writing -- review & editing: \blackout{BM, MFBB, JOP, MWM, MJC}  
 
-## Acknowledgements
+<!-- ## Acknowledgements -->
 
-\noindent The first and last author would like to thank František Bartoš for drawing their attention to the `RoBMA` package during the review of the original self-controlled learning meta-analysis and for providing helpful feedback on an earlier draft of this manuscript.
+<!-- \noindent The first and last author would like to thank \blackout{František Bartoš for drawing their attention to the `RoBMA` package during the review of the original self-controlled learning meta-analysis and for providing helpful feedback on an earlier draft of this manuscript.} -->
 
-## Open Science Practices
-\noindent The data and scripts can be accessed using either of the following links: https://osf.io/vfza7/ or https://github.com/cartermaclab/proj_sc-ee-optimal-theory
+## Data availability statement
 
-## Conflicts of Interest
+\noindent The data and scripts can be accessed using either of the following links: https://osf.io/vfza7/ or \censor{$https://github.com/cartermaclab/proj_sc-ee-optimal-theory$}.
+
+## Declaration of interest statement
 
 \noindent All authors declare no conflicts of interest.
 
-## Funding
+<!-- ## Funding -->
 
-\noindent This work was supported by the Natural Sciences and Engineering Research Council (NSERC) of Canada (RGPIN-2018-05589; MJC) and McMaster University (MJC).
+<!-- \noindent This work was supported by the Natural Sciences and Engineering Research Council (NSERC) of Canada (RGPIN-2018-05589; \censor{MJC}) and \censor{McMaster} University (\censor{MJC}). -->
 
-\vspace{3em}
+\newpage
 
 # References
 
 \vspace{2ex}
 ::: {#refs custom-style="Bibliography"}
 :::
+
+\newpage
+
+# Figure captions
+
+\noindent
+**Figure 1.** **Description of the original meta-analyses.** Diagram outlining the shared and unique inclusion criteria, dependent variable selection, the number of studies screened, and the number of studies included in each meta-analysis.
+
+\noindent
+**Figure 2.** **Results from the robust Bayesian meta-analysis with publication selection model-averaging (RoBMA-PSMA) method.** **(A)** Prior spike and distribution (purple) with 50% of prior probability density concentrated on the null hypothesis and 50% reflecting plausible true effects with *M* = 0 and *SD* = 1. (The x-axis is truncated; the prior did include a small probability of effects larger than 1 and smaller than -1.) The model-averaged posterior distribution of the mean effect (Mu) of **(B)** self-controlled practice on motor learning (blue). The increased height of the spike at mu = 0 reflects increased belief in the null hypothesis. The remaining distribution reflects updated belief in the size and direction of a possible true effect. The mean estimate (*M* = .034) for the posterior distribution is represented by the dashed vertical line. The model-averaged posterior distribution of the mean effect of **(C)** enhanced expectancies on motor learning (red). The decreased height of the spike at mu = 0 reflects decreased belief in the null hypothesis. The remaining distribution reflected updated belief in the size and direction of a possible true effect. The mean estimate (*M* = .26) for the posterior distribution is represented by the dashed vertical line. The model-averaged posterior distribution generated from an analysis of **(D)** simulated data (green). In the simulation, 49 studies were sampled from a population with a true effect of mu = .54 and no reporting bias. The mean estimate (*M* = .504) for the posterior is represented by the vertical dashed line. Outliers were not included in the self-controlled (*n* = 2) and enhanced expectancies (*n* = 2) models.
+
+\noindent
+**Figure 3.** **Results of the *z*-curve analyses.** Distribution of *z*-values for **(A)** our simulation with 47% results and no reporting bias (green), **(B, left)** self-controlled practice (blue), **(C, left)** enhanced expectancies (red), and **(D, left)** motivational factors combined (purple). Values in the *z*-score distributions for each analysis that are to the right of the significance line (*z* = 1.96; solid, black) are statistically significant with a two-tailed $\alpha$ of .05. Bootstrapped confidence distributions for the expected discovery rate (EDR; dark) and expected replication rate (ERR; light) for **(B, right)** self-controlled practice (blue), **(C, right)** enhanced expectancies (red), and **(D, right)** motivational factors combined (purple). Note, reported confidence intervals include 5 extra points (EDR) and 3 extra points (ERR) added to the quantiles of the bootstrapped distributions in the right panel, consistent with @bartos2021. The expected discovery rate is the estimated average power of all studies that have been conducted . The expected replication rate is the estimated power of all studies that observed a statistically significant result. The analysis estimated the average statistical power to be 6%, 8%, and 6% for self-controlled practice, enhanced expectancies, and motivational factors combined, respectively. The estimated conditional power of the statistically significant results was 11%, 33%, and 21% for self-controlled practice, enhanced expectancies, and motivational factors combined, respectively. Note that a minimum power of 80% (dashed line, black) is often recommended. Outliers were not included in the self-controlled (*n* = 2), enhanced expectancies (*n* = 2), and motivational factors combined (*n* = 4) analyses.
