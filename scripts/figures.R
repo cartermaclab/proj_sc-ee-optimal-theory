@@ -214,8 +214,6 @@ fig1 + theme(
   plot.margin = unit(c(-0.25, 0, -2.75, 0), "cm")
 )
 
-#> Read in fig1 as an magick image object to trim extra margin away
-
 
 #> Figure 2 - multipanel figure of prior and posterior distributions
 #> (A) Prior; (B) Self-controlled; (C) Enhanced expectancies; (D) Posterior
