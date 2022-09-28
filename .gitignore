@@ -41,6 +41,9 @@ vignettes/*.pdf
 # Ignore cover letter directory
 *cover-letter*
 
+# Ignore stupidly large tiff version of files
+*.tiff
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
