@@ -8,7 +8,7 @@
 #>   Brad McKay
 #>   Mike Carter
 #>
-#> Last update: Sept 3 2022
+#> Last update: Feb 05 2022
 #>
 #> Website: https://www.cartermaclab.org
 #> -------------------------------------------
@@ -187,7 +187,7 @@ fig1 +
            label = expression(bold('Studies Screened and Included')),
            size = 4) +
   annotate('text', x = 25.5, y = 20,
-           label = 'Full Text Screened: 125\n Studies Included: 56',
+           label = 'Full Text Screened: 125\n Outcomes Included: 56',
            size = 4) -> fig1
 
 fig1 +
@@ -224,15 +224,18 @@ spike <- rep(0, 5000)
 slab <-  rnorm(5000)
 prior <- dplyr::as_tibble(c(spike, slab))
 
+breaks = c(seq(from = -2.5, to = -.1, by = .1), -.001, 0, .001, seq(from = .1, to = 2.5, by = .1))
+
+
 fig2a <- ggplot(
   prior, aes(x = value)
 ) +
   geom_histogram(fill = "#c0b8da",
                  color = "black",
-                 binwidth = .05) +
+                 breaks = breaks) +
   coord_cartesian(expand = FALSE) +
   scale_x_continuous(name = "Mu",
-                     limits = c(-.5, 1)) +
+                     limits = c(-3, 3)) +
   scale_y_continuous(name = "Count",
                      limits = c(0, 7900)) +
   ggtitle(expression(italic("Prior distribution"))
@@ -245,10 +248,10 @@ fig2b <- ggplot(
 ) +
   geom_histogram(fill = "#89edff",
                  color = "black",
-                 binwidth = .05) +
+                 breaks = breaks) +
   coord_cartesian(expand = FALSE) +
   scale_x_continuous(name = "Mu",
-                     limits = c(-.5, 1)) +
+                     limits = c(-3, 3)) +
   scale_y_continuous(name = NULL,
                      limits = c(0, 7900)) +
   # geom_vline(xintercept = mean(post_sc_rob$value),
@@ -266,10 +269,10 @@ fig2c <- ggplot(
 ) +
   geom_histogram(fill = "#ff89a1",
                  color = "black",
-                 binwidth = .05) +
+                 breaks = breaks) +
   coord_cartesian(expand = FALSE) +
   scale_x_continuous(name = "Mu",
-                     limits = c(-.5, 1)) +
+                     limits = c(-3, 3)) +
   scale_y_continuous(name = NULL,
                      limits = c(0, 7900)) +
   # geom_vline(xintercept = mean(post_ee_rob_nol$value),
@@ -286,10 +289,10 @@ fig2d <- ggplot(
   sim_rob, aes(x = value)) +
   geom_histogram(fill = "#b5d4cc",
                  color = "black",
-                 binwidth = .05) +
+                 breaks = breaks) +
   coord_cartesian(expand = FALSE) +
   scale_x_continuous(name = "Mu",
-                     limits = c(-.5, 1)) +
+                     limits = c(-3, 3)) +
   scale_y_continuous(name = NULL,
                      limits = c(0, 7900)) +
   theme(axis.text.y = element_blank()) +
@@ -310,6 +313,28 @@ fig2 +
   patchwork::plot_annotation(tag_levels = "A") &
   theme(plot.tag = element_text(size = 20, face = "bold"))
 
+
+#> Supplementary Figure S1 - uses the native plotting in RoBMA
+#> To recreate these figures, you will need to run the RoBMA simulations
+#> in sc_wrangle-analysis.R, ee_wrangle-analysis.R, and
+#> simulations_real-effect-no-publication-bias.R
+sc_default <- plot(psma, plot_type = "ggplot",
+                   prior = TRUE, col = "#89edff",
+                   main = expression(italic("Self-controlled practice")))
+
+ee_default <- plot(eepsma2, plot_type = "ggplot",
+                   prior = TRUE, col = "#ff89a1",
+                   main = expression(italic("Enhanced expectancies")))
+
+sim_default <- plot(rob_sim, plot_type = "ggplot",
+                    prior = TRUE, col = "#b5d4cc",
+                    main = expression(italic("Simulation with a real effect")))
+
+figS1 <- sc_default + ee_default + sim_default + plot_layout(nrow = 1)
+
+figS1 +
+  patchwork::plot_annotation(tag_levels = "A") &
+  theme(plot.tag = element_text(size = 20, face = "bold"))
 
 #> Figure 3 - multipanel figure of z-curve plots, and expected
 #> discovery rate (EDR) and expected replication rate (ERR) uncertainty

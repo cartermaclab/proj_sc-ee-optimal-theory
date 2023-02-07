@@ -7,7 +7,7 @@
 #> Authors:
 #>   Brad McKay
 #>
-#> Last update: July 19 2022
+#> Last update: Feb 05 2023
 #>
 #> Website: https://www.cartermaclab.org
 #> -------------------------------------------
@@ -49,13 +49,27 @@ s2 <- sqrt(eedat_nol2$vi)
 #> the data directory of the project repository
 
 #> Fit RoBMA model to enhanced expectancies data with outliers removed
-# eepsma2 <- RoBMA(
-#   d = d2,
-#   se = s2,
-#   seed = 1,
-#   model_type = "PSMA",
-#   parallel = TRUE
-# )
+ #eepsma2 <- RoBMA(
+  # d = d2,
+  # se = s2,
+  # seed = 1,
+  # model_type = "PSMA",
+  # parallel = TRUE
+ #)
+
+#> Sensitivity analysis with informed effect distribution
+#>
+#sens_eepsma2 <- RoBMA(
+     #d = d2,
+     #se = s2,
+     #seed = 1,
+     #model_type = "PSMA",
+     #parallel = TRUE,
+     #priors_effect = prior(distribution = "normal",
+                           #parameters = list(mean = 0, sd = .36))
+     #)
+
+#summary(sens_eepsma2)
 
 #> Save posterior distributions (post), model-averaged estimates (psma), and
 #> individual model estimates (models)

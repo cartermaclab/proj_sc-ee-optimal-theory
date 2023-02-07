@@ -7,7 +7,7 @@
 #> Authors:
 #>   Brad McKay
 #>
-#> Last update: July 19 2022
+#> Last update: Feb 05 2023
 #>
 #> Website: https://www.cartermaclab.org
 #> -------------------------------------------
@@ -56,7 +56,21 @@ s <- na.omit(s)
 #> the data directory of the project repository
 
 #> Fit RoBMA to self-controlled practice data with outliers removed
-## psma <- RoBMA(d = d, se = s, seed = 1, model_type = "PSMA", parallel = TRUE)
+#psma <- RoBMA(d = d, se = s, seed = 1, model_type = "PSMA", parallel = TRUE)
+
+
+
+#> Sensitivity analysis with informed effect distribution
+#>
+#sens_psma <- RoBMA(d = d,
+                   #se = s, seed = 1,
+                   #model_type = "PSMA",
+                   #parallel = TRUE,
+                   #priors_effect = prior(distribution = "normal",
+                                         #parameters = list(mean = 0, sd = .36)))
+
+
+#summary(sens_psma)
 
 #> Save posterior distributions (post), model-averaged estimates (psma), and
 #> individual model estimates (models)
